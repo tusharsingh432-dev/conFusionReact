@@ -1,5 +1,6 @@
 import React from 'react';
-import { Card, CardTitle, CardText, CardImg, CardBody } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 function RenderComment({comments}){
     const commentsArray = comments.map((comment) => {
@@ -14,17 +15,17 @@ function RenderComment({comments}){
     });
 
     return(
-        <div className="col-12 col-md-5 m-1">
+        <React.Fragment>
             <h4>Comments</h4>
             {commentsArray}
-        </div>
+        </React.Fragment>    
     );
 
 }
 
 function DishRender({dishes}){
     return(
-        <div className="col-12 col-md-5 m-1">
+        
             <Card>
                 <CardImg  width="100%" src={dishes.image} alt={dishes.name} />
                     <CardBody>
@@ -32,27 +33,33 @@ function DishRender({dishes}){
                         <CardText>{dishes.description}</CardText>
                     </CardBody>
             </Card>
-        </div>
     );   
 }
 
 const DishDetails = (props) => {
 
-    if (props.dishes) {
-        return(
-            <div className="container">
-                <div className="row">
-                    <DishRender dishes = {props.dishes} />
-                    <RenderComment comments = {props.dishes.comments} />
+    return(
+        <div className="container">    
+            <div className="row">
+                <Breadcrumb>
+                    <BreadcrumbItem><Link to="/menu">Menu</Link></BreadcrumbItem>
+                    <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>
+                </Breadcrumb>
+                <div className="col-12">
+                    <h3>{props.dish.name}</h3>
+                    <hr />
+                </div>                
+            </div>
+            <div className="row">
+                <div className="col-12 col-md-5 m-1">
+                    <DishRender dishes={props.dish} />
+                </div>
+                <div className="col-12 col-md-5 m-1">
+                    <RenderComment comments={props.comments} />
                 </div>
             </div>
-        );   
-    } else {
-        return(
-            <div></div>
-        );
-    }
-    
+        </div>
+    );   
 }
 
 export default DishDetails;
