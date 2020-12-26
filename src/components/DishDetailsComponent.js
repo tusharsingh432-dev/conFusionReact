@@ -25,14 +25,13 @@ function RenderComment({comments}){
 
 function DishRender({dishes}){
     return(
-        
-            <Card>
-                <CardImg  width="100%" src={dishes.image} alt={dishes.name} />
-                    <CardBody>
-                        <CardTitle style={{fontSize:"30px", fontWeight:"bold"}}>{dishes.name}</CardTitle>
-                        <CardText>{dishes.description}</CardText>
-                    </CardBody>
-            </Card>
+        <Card>
+            <CardImg  width="100%" src={dishes.image} alt={dishes.name} />
+                <CardBody>
+                    <CardTitle style={{fontSize:"30px", fontWeight:"bold"}}>{dishes.name}</CardTitle>
+                    <CardText>{dishes.description}</CardText>
+                </CardBody>
+        </Card>
     );   
 }
 
