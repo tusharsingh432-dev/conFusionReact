@@ -40,7 +40,7 @@ class Footer extends Component{
                     </div>
                     <div className="row justify-content-center">             
                         <div className="col-auto">
-                            <p>© Copyright 2018 Ristorante Con Fusion</p>
+                            <p>© Copyright Tushar Singh</p>
                         </div>
                     </div>
                 </div>
