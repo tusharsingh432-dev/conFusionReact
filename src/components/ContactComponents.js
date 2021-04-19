@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Breadcrumb, BreadcrumbItem, Form, FormGroup, Input, Col, Label, Button, FormFeedback } from 'reactstrap';
-import validator from 'validator'
 class Contact extends Component {
     constructor(props) {
         super(props)
